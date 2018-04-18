@@ -1,0 +1,15 @@
+beginner
+contribution-starter
+easy
+easy-fix
+easy-pick
+first-timers-only
+first-timers-welcome
+good-first-bug
+good-first-issue
+help-wanted
+low-hanging-fruit
+newbie
+starter
+starter-bug
+up-for-grabs
