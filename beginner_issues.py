@@ -1,9 +1,11 @@
+from flask import Flask, render_template
 from requests import get
 from time import sleep
 
 import json
 import os
 
+app = Flask(__name__)
 
 def get_items_from_txt(filepath):
     reader = open(filepath, 'r')
@@ -12,19 +14,18 @@ def get_items_from_txt(filepath):
     return items
 
 
+@app.route('/')
 def main():
-    NUM_RESULTS = 20
+    NUM_RESULTS = 100
+    SEARCHES_PER_MINUTE = 10
     language = "python"
 
     dirname = os.path.dirname(__file__)
-
     labels_path = os.path.join(dirname, 'labels.txt')
-    results_path = os.path.join(dirname, 'results.txt')
-
     labels = get_items_from_txt(labels_path)
 
-
     issues = []
+
     for label in labels:
         response = get("https://api.github.com/search/issues?q=label:" +
                                 label + "+language:" + language + "+state:open&sort=created")
@@ -33,26 +34,13 @@ def main():
             if item not in issues:
                 issues.append(item)
         #GitHub search API has limit of 10 searches per minute (Unauthenticated)
-        #Sleep for 6 seconds to avoid being rejected.
-        sleep(6)
+        #Sleep to avoid being rejected.
+        sleep(60/SEARCHES_PER_MINUTE)
 
     issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=True)
 
-    results_file = open(results_path, 'w', encoding="utf-8")
-
-    for i in range(1, NUM_RESULTS+1):
-        issue = issues_sorted[i-1]
-        results_file.write(str(i) + ". " + issue['title'] + '\n')
-        results_file.write('\t' + issue['html_url'] + '\n\n')
-        results_file.write('\tLabels:\n')
-        for label in issue['labels']:
-            results_file.write('\t\t' + label['name'] + '\n')
-        results_file.write('\n\n')
-
-    results_file.close()
-
-    return 1
+    return render_template('main.html', issues_list=issues_sorted)
 
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
