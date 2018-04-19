@@ -1,0 +1,16 @@
+
+<h1>Beginner Issues</h1>
+{% for i in range(1, 10): %}
+    {% set issue = issues_list[i-1] %}
+    <h3><a href="{{ issue['html_url'] }}">{{ issue['title'] }}</a></h3>
+    {{ 'Labels: ' }}
+    <ul>
+        {% for label in issue['labels']: %}
+            <li>
+            {{ '\t\t' + label['name'] + '\n' }}<br>
+            </li>
+        {% endfor %}
+
+    </ul>
+    <br><br>
+{% endfor %}
