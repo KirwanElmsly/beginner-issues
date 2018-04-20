@@ -1,5 +1,11 @@
 
 <h1>Beginner Issues</h1>
+
+<form action = "/" method="post">
+    <input type="text" name="language" size="12">
+    <p><input type = "submit" value = "submit" /></p>
+</form>
+
 {% for i in range(1, 10): %}
     {% set issue = issues_list[i-1] %}
     <h3><a href="{{ issue['html_url'] }}">{{ issue['title'] }}</a></h3>
