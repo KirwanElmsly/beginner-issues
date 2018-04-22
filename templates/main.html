@@ -1,22 +1,19 @@
 
-<h1>Beginner Issues</h1>
+{% extends "form.html" %}
+{% block results %}
+    {% for i in range(1, 10): %}
+        {% set issue = issues_list[i-1] %}
+        <h3><a href="{{ issue['html_url']}}">{{ issue['title'] }}</a></h3>
+        Opened by <a href="{{ issue['user']['html_url'] }}">{{ issue['user']['login'] }}</a><br>
+        {{ 'Labels: ' }}
+        <ul>
+            {% for label in issue['labels']: %}
+                <li>
+                {{ '\t\t' + label['name'] + '\n' }}<br>
+                </li>
+            {% endfor %}
 
-<form action = "/" method="post">
-    <input type="text" name="language" size="12">
-    <p><input type = "submit" value = "submit" /></p>
-</form>
-
-{% for i in range(1, 10): %}
-    {% set issue = issues_list[i-1] %}
-    <h3><a href="{{ issue['html_url'] }}">{{ issue['title'] }}</a></h3>
-    {{ 'Labels: ' }}
-    <ul>
-        {% for label in issue['labels']: %}
-            <li>
-            {{ '\t\t' + label['name'] + '\n' }}<br>
-            </li>
-        {% endfor %}
-
-    </ul>
-    <br><br>
-{% endfor %}
+        </ul>
+        <br><br>
+    {% endfor %}
+{% endblock %}
