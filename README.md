@@ -30,11 +30,11 @@ python beginner-issues.py
 
 ## Testing
 
-No tests yet :(
+No tests as of yet.
 
 ## Built With
 
-* [Flask](http://flask.pocoo.org/) - web framewor
+* [Flask](http://flask.pocoo.org/) - web framework
 
 ## Authors
 
