@@ -1,4 +1,5 @@
 # beginner-issues
+
 Under Development & Incomplete.
 
 Simple Python script to aggregate GitHub issue search results for multiple labels.
@@ -7,8 +8,34 @@ So I couldn't figure out how to include multiple labels while searching GitHub i
 
 Feedback is appreciated! Feel free to message me with feedback or if you think this is stupid.
 
+## Getting Started
 
-# Requirements
-Developed using Python 3.6 but it should work on Python 3.x
+### Prerequisites
 
-Additional requirements can be found in requirements.txt
+* Python 3.6
+* Pip
+* VirtualEnv (Optional but recommended)
+
+### Installing
+
+Install dependencies.
+```
+pip install requests.txt
+```
+
+Run the application locally.
+```
+python beginner-issues.py
+```
+
+## Testing
+
+No tests yet :(
+
+## Built With
+
+* [Flask](http://flask.pocoo.org/) - web framewor
+
+## Authors
+
+* **Kirwan Elmsly**
