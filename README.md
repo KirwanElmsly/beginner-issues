@@ -19,31 +19,31 @@ Feedback is appreciated! Feel free to message me with feedback or if you think t
 ### Installing
 
 First, clone this repository.
-'''
+```
 $ git clone https://github.com/KirwanElmsly/beginner-issues
 $ cd beginner-issues
-'''
+```
 
 Create a virtualenv, and activate:
-'''
+```
 $ virtualenv env
 $ source venv/bin/activate
-'''
+```
 
 Install all necessary dependencies:
-'''
+```
 $ pip install -r requirements.txt
-'''
+```
 
 Run the application:
-'''
+```
 $ python run.py
-'''
+```
 
 To see your application, access this url in your browser:
-'''
+```
 http://localhost:5000
-'''
+```
 
 
 All configuration is in: `configuration.py`
