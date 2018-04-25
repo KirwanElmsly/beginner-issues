@@ -5,6 +5,7 @@ from flask import request, render_template
 import requests
 
 from app import app
+from models import user
 from .utils import *
 
 

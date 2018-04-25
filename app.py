@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -7,4 +8,6 @@ app = Flask(__name__)
 app.config.from_object('app.configuration.DevelopmentConfig')
 #app.config.from_object('configuration.TestingConfig')
 
-from app import views, models
+db = SQLAlchemy(app)
+
+# Here I would set up the cache, a task queue, etc.
