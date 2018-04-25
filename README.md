@@ -46,7 +46,7 @@ http://localhost:5000
 ```
 
 
-All configuration is in: `configuration.py`
+All configuration is in: `config.py`
 
 ## Testing
 
