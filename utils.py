@@ -7,8 +7,8 @@ def get_items_from_txt(dir, file):
     reader.close()
     return items
 
-def searches_per_minute(auth_string):
-    return requests.get("https://api.github.com/rate_limit" + auth_string).json()['resources']['search']['limit']
+def searches_per_minute():
+    return requests.get("https://api.github.com/rate_limit").json()['resources']['search']['limit']
 
-def searches_remaining(auth_string):
-    return requests.get("https://api.github.com/rate_limit" + auth_string).json()['resources']['search']['remaining']
+def searches_remaining():
+    return requests.get("https://api.github.com/rate_limit").json()['resources']['search']['remaining']

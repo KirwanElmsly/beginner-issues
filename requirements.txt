@@ -1,3 +1,4 @@
-requests
 flask
 flask-sqlalchemy
+requests
+requests-cache

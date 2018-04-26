@@ -3,3 +3,5 @@ __pycache__/
 
 #virtualenv
 venv/
+
+github_cache.sqlite

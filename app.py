@@ -1,3 +1,5 @@
+import requests_cache
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -9,5 +11,4 @@ app.config.from_object('config.DevelopmentConfig')
 #app.config.from_object('configuration.TestingConfig')
 
 db = SQLAlchemy(app)
-
-# Here I would set up the cache, a task queue, etc.
+requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=600)
