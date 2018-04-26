@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Beginner Issues</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1 id="header">Beginner Issues</h1>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {% block footer %}
+                by Kirwan
+            {% endblock %}
+        </div>
+    </body>
+</html>

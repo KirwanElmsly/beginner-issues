@@ -1,7 +1,7 @@
 import os
 from time import sleep
 
-from flask import request, render_template
+from flask import request, render_template, url_for
 import requests
 
 from app import app
@@ -34,4 +34,4 @@ def index():
 
         return render_template('results.html', issues_list=issues_sorted)
     elif request.method == 'GET':
-        return render_template('form.html')
+        return render_template('content.html')

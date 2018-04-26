@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    {% extends "layout.html" %}
+
+    {% block content %}
+        <form id="search" action = "/" method="post">
+            <input type="text" name="language" size="12" placeholder="Language"><input type = "submit" value = "submit" /></p>
+        </form>
+        <div id="results">{% block results %}{% endblock %}</div>
+    {% endblock %}
+</html>
