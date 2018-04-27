@@ -1,4 +1,6 @@
-
+* {
+    font-family: 'Roboto', sans-serif;
+}
 
 h1 {
     font-size: 3em;
@@ -10,10 +12,18 @@ h1 {
     text-align: center;
 }
 
+#search-text {
+
+}
+
+#search-button {
+
+}
 
 #content {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
 }
 
 #results {
@@ -30,13 +40,13 @@ h1 {
     justify-content: space-between;
     width: 320px;
     border: 2px solid grey;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 10px;
-
+    padding: 5px;
 }
 
 .issue-info {
-
+    margin: 2px 5px 0px 5px;
 }
 
 #issue-title {
@@ -58,7 +68,13 @@ h1 {
 
 .label {
     font-size: .7em;
-    margin: 3px;
+    margin: 5px;
+    background: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 15px;
+    padding: 2px 10px;
+
 }
 
 #footer {

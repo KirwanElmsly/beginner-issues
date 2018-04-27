@@ -11,4 +11,4 @@ app.config.from_object('config.DevelopmentConfig')
 #app.config.from_object('configuration.TestingConfig')
 
 db = SQLAlchemy(app)
-requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=600)
+requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=86400)
