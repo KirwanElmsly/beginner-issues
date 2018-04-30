@@ -3,15 +3,13 @@
     <head>
         <title>Beginner Issues</title>
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:" rel="stylesheet">
     </head>
     <body>
-        <h1 id="header">Beginner Issues</h1>
+        <h1>Beginner Issues</h1>
         <div id="content">{% block content %}{% endblock %}</div>
         <div id="footer">
-            {% block footer %}
-                by Kirwan
-            {% endblock %}
+            by Kirwan
         </div>
     </body>
 </html>

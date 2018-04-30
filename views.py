@@ -30,7 +30,11 @@ def index():
             if not response.from_cache:
                 sleep(60/SEARCHES_PER_MINUTE)
 
-        issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=True)
+            if request.form['sort-chrono'] == "ascending":
+                issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=False)
+            else:
+                issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=True)
+
 
         return render_template('results.html', issues_list=issues_sorted)
     elif request.method == 'GET':

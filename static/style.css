@@ -2,10 +2,37 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
 h1 {
     font-size: 3em;
     margin-top: 40px;
     text-align: center;
+}
+
+#content {
+    width: 100%;
+    margin: 0 auto;
 }
 
 #search {
@@ -13,17 +40,12 @@ h1 {
 }
 
 #search-text {
-
+    width: 70%;
+    font-size: 1.2em;
 }
 
 #search-button {
-
-}
-
-#content {
-    width: 90%;
-    padding: 20px;
-    margin: 0 auto;
+    font-size: 1.2em;
 }
 
 #results {
@@ -50,11 +72,18 @@ h1 {
 }
 
 #issue-title {
-
+    text-align: left;
 }
 
-#opened-by {
+#subtitle {
+    font-size: 0.7em;
+    text-align: left;
+}
 
+#created-at {
+    font-size: 0.7em;
+    text-align: left;
+    display: inline;
 }
 
 #labels {
@@ -74,10 +103,15 @@ h1 {
     color: black;
     border-radius: 15px;
     padding: 2px 10px;
-
 }
 
 #footer {
+    padding-top: 50px;
+    padding-bottom: 10px;
     text-align: center;
-    color: grey;
+    width: 100%;
+}
+
+.icon {
+
 }

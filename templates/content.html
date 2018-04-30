@@ -5,7 +5,10 @@
 
     {% block content %}
         <form id="search" action = "/" method="post">
-            <input id="search-text" type="text" name="language" size="12" placeholder="Language"><br><input id="search-button" type = "submit" value = "Go" /></p>
+            <input id="search-text" type="text" name="language" placeholder="Try &quot;Python&quot;" /><br>
+            <input type="radio" name="sort-chrono" value = "ascending"/>Oldest First<br>
+            <input type="radio" name="sort-chrono" value = "descending" />Newest First<br>
+            <input id="search-button" type = "submit" value = "Search" /></p>
         </form>
         <div id="results">{% block results %}{% endblock %}</div>
     {% endblock %}
