@@ -2,7 +2,7 @@
 
 Under Development & Incomplete.
 
-Simple Python script to aggregate GitHub issue search results for multiple labels.
+Web application to aggregate GitHub issue search results for multiple labels.
 
 So I couldn't figure out how to include multiple labels while searching GitHub issues so I quickly wrote up a Python script to aggregate results for multiple labels. Currently making it work as a simple web app with a Flask back end. I haven't really done much web development in the past so this is a learning process for me. This might take a while too as I don't have much time to work on it.
 
@@ -40,9 +40,9 @@ Run the application:
 $ python run.py
 ```
 
-To see your application, access this url in your browser:
+To see your application, go to this url in your browser:
 ```
-http://localhost:5000
+http://127.0.0.1:5000
 ```
 
 
