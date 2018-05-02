@@ -46,7 +46,8 @@ http://127.0.0.1:5000
 ```
 
 
-All configuration is in: `config.py`
+All configuration is in: `config.py`. Which will need to be added to the project directory too. I have removed `config.py` due to it holding the API keys. The structure of `config.py` can be found in `example-config.py`.
+
 
 ## Testing
 
