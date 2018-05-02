@@ -1,7 +1,8 @@
 import os
 from time import sleep
 
-from flask import request, render_template, url_for
+from flask import redirect, request, render_template, url_for
+from flask_dance.contrib.github import github
 import requests
 
 from app import app
@@ -36,3 +37,11 @@ def index():
         return render_template('results.html', issues_list=issues_sorted)
     else:
         return render_template('content.html')
+
+@app.route("/login")
+def login():
+    if not github.authorized:
+        return redirect(url_for("github.login"))
+    resp = github.get("/user")
+    assert resp.ok
+    return "You are @{login} on GitHub".format(login=resp.json()["login"])
