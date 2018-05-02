@@ -7,7 +7,7 @@
     {% endblock %}
 
     {% block results %}
-        {% for i in range(1, 100): %}
+        {% for i in range(1, 10): %}
             {% set issue = issues_list[i-1] %}
             <div id="results">
                 <div class="issue">
@@ -16,7 +16,7 @@
                             <a href="{{ issue['html_url']}}">{{ issue['title'] }}</a>
                         </div>
                         <div id="subtitle">
-                            Opened by <a href="{{ issue['user']['html_url'] }}">{{ issue['user']['login'] }} - </a>
+                            Opened by <a href="{{ issue['user']['html_url'] }}" target="_blank">{{ issue['user']['login'] }} - </a>
                         </div>
                     </div>
 
