@@ -2,4 +2,3 @@ flask
 flask-sqlalchemy
 flask-dance[sqla]
 requests
-requests-cache
