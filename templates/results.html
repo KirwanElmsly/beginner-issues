@@ -7,30 +7,31 @@
     {% endblock %}
 
     {% block results %}
-        {% for i in range(1, 10): %}
-            {% set issue = issues_list[i-1] %}
-            <div id="results">
-                <div class="issue">
-                    <div class="issue-info">
-                        <div id="issue-title">
-                            <a href="{{ issue['html_url']}}">{{ issue['title'] }}</a>
-                        </div>
-                        <div id="subtitle">
-                            Opened by <a href="{{ issue['user']['html_url'] }}" target="_blank">{{ issue['user']['login'] }} - </a>
+        <div class="results container">
+            <div class="row row-eq-height">
+                {% for i in range(1, 10): %}
+                    {% set issue = issues_list[i-1] %}
+                    <div class="issue-box col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="issue">
+                            <div class="issue-info">
+                                <div id="issue-title">
+                                    <a href="{{ issue['html_url']}}">{{ issue['title'] }}</a>
+                                </div>
+                                <div id="subtitle">
+                                    Opened by <a href="{{ issue['user']['html_url'] }}" target="_blank">{{ issue['user']['login'] }} - </a>
+                                </div>
+                            </div>
+                            <div id="labels">
+                                {% for label in issue['labels']: %}
+                                    <span class="label badge badge-pill badge-secondary">
+                                        {{ '\t\t' + label['name'] + '\n' }}
+                                    </span>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-
-                    <div id="labels">
-                        {% for label in issue['labels']: %}
-                            <span class="label label-default">
-                                {{ '\t\t' + label['name'] + '\n' }}<br>
-                            </span>
-                        {% endfor %}
-
-                    </div>
-                </div>
+                    {% endfor %}
             </div>
-            <br><br>
-        {% endfor %}
+        </div>
     {% endblock %}
 </html>

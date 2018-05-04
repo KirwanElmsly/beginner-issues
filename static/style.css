@@ -34,27 +34,23 @@ h1 {
     font-size: 1.2em;
 }
 
-#results {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+.results {
+    
+}
+
+.issue-box {
+    padding-top: 10px;
 }
 
 .issue {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 320px;
     border: 2px solid grey;
     border-radius: 10px;
-    margin: 10px;
-    padding: 5px;
+    height: 100%;
+    padding: 0px 2px 0px 2px;
 }
 
 .issue-info {
-    margin: 2px 5px 0px 5px;
+    margin: 0px;
 }
 
 #issue-title {
@@ -82,8 +78,8 @@ h1 {
 }
 
 .label {
-    margin: 5px;
-    padding: 2px 10px;
+    margin: 0px 5px 5px 0px;
+    padding: 0px 5px 0px 5px;
 }
 
 #footer {
