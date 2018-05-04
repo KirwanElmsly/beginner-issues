@@ -15,7 +15,7 @@ app.config.from_object('config.DevelopmentConfig')
 db = SQLAlchemy(app)
 requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=86400)
 
-app.secret_key = os.environ.get("FLASK_SECRET_KEY", "RX0NbIGLmdkYRB6")
+# app.secret_key = os.environ.get("FLASK_SECRET_KEY", "RX0NbIGLmdkYRB6")
 
 github_bp = make_github_blueprint()
 app.register_blueprint(github_bp, url_prefix="/login")

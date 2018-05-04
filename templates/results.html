@@ -22,9 +22,9 @@
 
                     <div id="labels">
                         {% for label in issue['labels']: %}
-                            <div class="label">
+                            <span class="label label-default">
                                 {{ '\t\t' + label['name'] + '\n' }}<br>
-                            </div>
+                            </span>
                         {% endfor %}
 
                     </div>
