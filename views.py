@@ -16,14 +16,8 @@ def index():
 
     language = request.form.get("language")
     if request.method == 'POST' and not language == "":
-
         issues = github_search(labels, language)
-
-        if request.form.get("sort-chrono") == "ascending":
-            issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=False)
-        else:
-            issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=True)
-
+        issues_sorted = sorted(issues, key=lambda issue: issue['created_at'], reverse=True)
         return render_template('results.html', issues_list=issues_sorted)
     else:
         return render_template('content.html')
