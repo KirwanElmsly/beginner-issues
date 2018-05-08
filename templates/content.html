@@ -4,12 +4,12 @@
     {% extends "layout.html" %}
 
     {% block content %}
-        <form id="search" action = "/" method="post">
-            <input id="search-text" type="text" name="language" placeholder="Try &quot;python&quot;" /><br>
+        <form class="search" action = "/" method="post">
+            <input class="search-text" type="text" name="language" placeholder="Try &quot;python&quot;" /><br>
             <input type="radio" name="sort-chrono" value = "ascending"/>Oldest First<br>
             <input type="radio" name="sort-chrono" value = "descending" />Newest First<br>
-            <input id="search-button" type = "submit" value = "Search" /></p>
+            <input class="search-button" type = "submit" value = "Search" /></p>
         </form>
-        <div id="results">{% block results %}{% endblock %}</div>
+        <div class="results">{% block results %}{% endblock %}</div>
     {% endblock %}
 </html>

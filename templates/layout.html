@@ -8,12 +8,17 @@
         <script src="https://use.fontawesome.com/1334a830a3.js"></script>
     </head>
     <body>
-        <div id="header">
-            <a href="/login" class="btn btn-lg btn-github header-item"><i class="fa fa-github"></i> Sign in with GitHub</a>
+        <div class="header">
+            <div class="header-left">
+                <a href="https://github.com/KirwanElmsly/beginner-issues" target="_blank" class="login-btn btn btn-github">beginner-issues</a>
+            </div>
+            <div class="header-right">
+                <a href="/login" class="login-btn btn btn-github"><i class="fa fa-github"></i> Sign in</a>
+            </div>
         </div>
-        <h1>Beginner Issues</h1>
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div id="footer">
+        <div class="title">Beginner Issues</div>
+        <div class="content">{% block content %}{% endblock %}</div>
+        <div class="footer">
             by Kirwan
         </div>
     </body>

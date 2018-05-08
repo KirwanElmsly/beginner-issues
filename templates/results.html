@@ -14,14 +14,14 @@
                     <div class="issue-box col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="issue">
                             <div class="issue-info">
-                                <div id="issue-title">
+                                <div class="issue-title">
                                     <a href="{{ issue['html_url']}}">{{ issue['title'] }}</a>
                                 </div>
-                                <div id="subtitle">
+                                <div class="subtitle">
                                     Opened by <a href="{{ issue['user']['html_url'] }}" target="_blank">{{ issue['user']['login'] }} - </a>
                                 </div>
                             </div>
-                            <div id="labels">
+                            <div class="labels">
                                 {% for label in issue['labels']: %}
                                     <span class="label badge badge-pill badge-secondary">
                                         {{ '\t\t' + label['name'] + '\n' }}
