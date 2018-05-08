@@ -18,8 +18,25 @@ body {
     height: 3rem;
 }
 
+.header * {
+    color: #4180AB;
+}
+
+.header *:hover {
+    color: #1F3540;
+}
+
 .header-left {
     float: left;
+}
+
+.header-right {
+    float: right;
+}
+
+.header-right:hover * {
+    color: #1F3540;
+    cursor: pointer;
 }
 
 .header-right {
@@ -44,10 +61,18 @@ body {
 .search-text {
     width: 70%;
     font-size: 1.2rem;
+    margin-top: 20px;
 }
 
 .search-button {
+    background-color: #4180AB;
+    color: #FFFFFF;
     font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.search-button:hover {
+    background-color: #1F3540;
 }
 
 .results {
