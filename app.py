@@ -11,9 +11,5 @@ app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
 #app.config.from_object('configuration.TestingConfig')
 
-db = SQLAlchemy(app)
-
-# app.secret_key = os.environ.get("FLASK_SECRET_KEY", "RX0NbIGLmdkYRB6")
-
 github_bp = make_github_blueprint()
 app.register_blueprint(github_bp, url_prefix="/login")

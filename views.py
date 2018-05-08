@@ -5,7 +5,6 @@ from flask_dance.contrib.github import github
 import requests
 
 from app import app
-from models import User
 from utils import *
 
 
