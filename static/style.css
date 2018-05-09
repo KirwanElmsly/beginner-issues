@@ -2,12 +2,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 body {
-    position: fixed;
+    position: absolute;
     width: 100%;
     text-align: center;
     margin: 0px;
-    overflow-x: hidden;
 }
 
 .header {
