@@ -1,5 +1,7 @@
 import os
 import requests
+from datetime import datetime, timedelta
+import json
 from flask_dance.contrib.github import github
 
 def get_items_from_txt(dir, file):
@@ -29,11 +31,48 @@ def github_search(labels, language):
     for label in labels:
         url = ("/search/issues?q=label:{}+language:{}+state:open&sort=created"
         .format(label, language))
-        # response = requests.get(url)
-        # results = response.json()
-        results = github.get(url).json()
+        raw_results = github.get(url).json()
 
-        for item in results['items']:
-            if item not in issues:
-                issues.append(item)
+        for issue in raw_results['items']:
+            if issue not in issues:
+                issue = strip_issue(issue)
+                issue['name'] = repo_name_from_url(issue['repository_url'])
+                issue['time_alive'] = time_since(issue['created_at'])
+                issues.append(issue)
     return issues
+
+def strip_issue(issue):
+    """Strips unneeded JSON data from issue"""
+    unwanted_elems = ['url', 'labels_url', 'comments_url', 'events_url', 'number', 'locked', 'assignee', 'assignees', 'milestone', 'comments', 'updated_at', 'closed_at', 'author_association']
+
+    for elem in unwanted_elems:
+        del issue[elem]
+
+    return issue
+
+def repo_name_from_url(url):
+    name = "/".join(url.split("/")[-2:])
+    return name
+
+def time_since(moment):
+    """Returns human-readable time since a moment in the past.
+
+    Keyword arguments:
+    moment -- ISO8601 formatted time.
+    """
+    duration = ""
+    dif = datetime.utcnow() - datetime.strptime(moment, '%Y-%m-%dT%H:%M:%SZ')
+
+    if dif.days > 0:
+        duration = "{} day".format(dif.days)
+    elif dif.seconds > 3600:
+        duration = "{} hour".format(dif.seconds // 3600)
+    elif dif.seconds > 60:
+        duration = "{} minute".format(dif.seconds // 60)
+    else:
+        duration = "{} second".format(dif.seconds)
+
+    if duration[:2] != "1 ":
+        duration = duration + "s"
+
+    return duration
