@@ -9,7 +9,7 @@
     {% block results %}
         <div class="results container">
             <div class="row row-eq-height">
-                {% for i in range(1, 15): %}
+                {% for i in range(1, 30): %}
                     {% set issue = issues_list[i-1] %}
                     <div class="issue-box col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="issue">
@@ -18,7 +18,7 @@
                                     <a href="{{ issue['html_url']}}">{{ issue['title'] }}</a>
                                 </div>
                                 <div class="subtitle">
-                                    <a href="{{ issue['repository_url'] }}" target="_blank">{{ issue['name'] }}ago</a><br>
+                                    <a href="{{ issue['repository_url'] }}" target="_blank">{{ issue['name'] }}</a><br>
                                     Opened by <a href="{{ issue['user']['html_url'] }}" target="_blank">{{ issue['user']['login'] }}</a> {{ issue['time_alive'] }} ago
                                 </div>
                             </div>
