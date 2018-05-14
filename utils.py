@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import json
 from flask_dance.contrib.github import github
 
+
 def get_items_from_txt(dir, file):
     """Gets list of labels from a text file."""
     path = os.path.join(dir, file)
@@ -12,13 +13,18 @@ def get_items_from_txt(dir, file):
     reader.close()
     return items
 
+
 def searches_per_minute():
     """Returns number of searches available per minute"""
-    return github.get("https://api.github.com/rate_limit").json()['resources']['search']['limit']
+    return github.(get("https://api.github.com/rate_limit")
+                   .json()['resources']['search']['limit'])
+
 
 def searches_remaining():
     """Returns number of searches remaining"""
-    return github.get("https://api.github.com/rate_limit").json()['resources']['search']['remaining']
+    return github.(get("https://api.github.com/rate_limit")
+                   .json()['resources']['search']['remaining'])
+
 
 def github_search(labels, language):
     """Searches GitHub Issues for given label and language.
@@ -30,7 +36,7 @@ def github_search(labels, language):
     issues = []
     for label in labels:
         url = ("/search/issues?q=label:{}+language:{}+state:open&sort=created"
-        .format(label, language))
+               .format(label, language))
         raw_results = github.get(url).json()
 
         for issue in raw_results['items']:
@@ -41,6 +47,7 @@ def github_search(labels, language):
                 issues.append(issue)
     return issues
 
+
 def strip_issue(issue):
     """Strips unneeded JSON data from issue"""
     unwanted_elems = ['url', 'labels_url', 'comments_url', 'events_url', 'number', 'locked', 'assignee', 'assignees', 'milestone', 'comments', 'updated_at', 'closed_at', 'author_association']
@@ -50,9 +57,11 @@ def strip_issue(issue):
 
     return issue
 
+
 def repo_name_from_url(url):
     name = "/".join(url.split("/")[-2:])
     return name
+
 
 def time_since(moment):
     """Returns human-readable time since a moment in the past.
