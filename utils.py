@@ -16,14 +16,12 @@ def get_items_from_txt(dir, file):
 
 def searches_per_minute():
     """Returns number of searches available per minute"""
-    return github.get("https://api.github.com/" +
-                      "rate_limit").json()['resources']['search']['limit']
+    return github.get("/rate_limit").json()['resources']['search']['limit']
 
 
 def searches_remaining():
     """Returns number of searches remaining"""
-    return github.get("https://api.github.com/" +
-                      "rate_limit").json()['resources']['search']['remaining']
+    return github.get("/rate_limit").json()['resources']['search']['remaining']
 
 
 def github_search(labels, language):
