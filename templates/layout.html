@@ -16,9 +16,17 @@
             </div>
         </div>
         <div class="title">Find beginner level issues on GitHub to start contributing to open source projects!</div>
-        <div class="content">{% block content %}{% endblock %}</div>
+        <div class="content">
+            <div class="search">
+                <input class="search-language" id="language" type="text" name="language" placeholder="Try &quot;python&quot;" /><br>
+                <input class="search-labels" id="labels" type="text" name="labels" placeholder="Try &quot;beginner&quot;" /><br>
+                <input class="btn search-button" id="search" value="Search" />
+            </div>
+            <div class="results">{% block results %}{% endblock %}</div>
+        </div>
         <div class="footer">
             by Kirwan
         </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
     </body>
 </html>
