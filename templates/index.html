@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Beginner Issues</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <script src="https://use.fontawesome.com/1334a830a3.js"></script>
@@ -16,14 +17,14 @@
             </div>
         </div>
         <div class="title">Find beginner level issues on GitHub to start contributing to open source projects!</div>
-        <div class="content">
+        <div id="content">
             <div class="search">
                 <input class="search-language" id="language" type="text" name="language" placeholder="Try &quot;python&quot;" /><br>
                 <input class="search-labels" id="labels" type="text" name="labels" placeholder="Try &quot;beginner&quot;" /><br>
                 <input class="btn search-button" id="search" value="Search" />
             </div>
-            <div class="results">{% block results %}{% endblock %}</div>
         </div>
+
         <div class="footer">
             by Kirwan
         </div>

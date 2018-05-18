@@ -1,8 +1,9 @@
 import os
 
 from functools import wraps
-from flask import redirect, request, render_template, url_for
+from flask import redirect, request, render_template, url_for, jsonify
 from flask_dance.contrib.github import github
+from flask_cors import cross_origin
 import requests
 
 from app import app
@@ -11,27 +12,27 @@ from utils import *
 
 @app.route("/", methods=['GET'])
 def index():
-    return render_template('layout.html')
+    return render_template('index.html')
 
 
 def github_login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not github.authorized:
-            assert False
             return redirect(url_for('index'))
         return f(*args, **kwargs)
     return decorated_function
 
 
 @app.route("/search/<string:language>/<list:labels>", methods=['GET'])
+@cross_origin()
 @github_login_required
 def search(language, labels):
     issues = github_search(labels, language)
-    issues_sorted = sorted(issues,
-                           key=lambda issue: issue['created_at'],
-                           reverse=True)
-    return render_template('results.html', issues_list=issues_sorted)
+    results = {}
+    results['items'] = issues
+    json_results = jsonify(results)
+    return json_results
 
 
 @app.route("/login")

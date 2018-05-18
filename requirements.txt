@@ -1,4 +1,5 @@
 flask
 flask-sqlalchemy
 flask-dance[sqla]
+flask-cors
 requests

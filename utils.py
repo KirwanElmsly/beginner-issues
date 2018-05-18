@@ -47,7 +47,6 @@ def github_search(labels, language):
         url = ("/search/issues?q=label:{}+language:{}+state:open&sort=created"
                .format(label, language))
         raw_results = github.get(url).json()
-
         for issue in raw_results['items']:
             if issue not in issues:
                 issue = strip_issue(issue)
@@ -59,7 +58,7 @@ def github_search(labels, language):
 
 def strip_issue(issue):
     """Strips unneeded JSON data from issue"""
-    unwanted_elems = ['url', 'labels_url', 'comments_url', 'events_url', 'number', 'locked', 'assignee', 'assignees', 'milestone', 'comments', 'updated_at', 'closed_at', 'author_association']
+    unwanted_elems = ['body', 'url', 'labels_url', 'comments_url', 'events_url', 'number', 'locked', 'assignee', 'assignees', 'milestone', 'comments', 'updated_at', 'closed_at', 'author_association', 'user']
 
     for elem in unwanted_elems:
         del issue[elem]
