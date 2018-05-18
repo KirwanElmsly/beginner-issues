@@ -9,7 +9,6 @@ from utils import ListConverter
 app = Flask(__name__)
 
 
-
 # Configuration of application, see configuration.py, choose one and uncomment.
 app.config.from_object('config.DevelopmentConfig')
 # app.config.from_object('configuration.TestingConfig')

@@ -6,7 +6,6 @@ from flask_dance.contrib.github import github
 from werkzeug.routing import BaseConverter
 
 
-
 class ListConverter(BaseConverter):
 
     def to_python(self, value):

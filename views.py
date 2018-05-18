@@ -34,7 +34,6 @@ def search(language, labels):
     return render_template('results.html', issues_list=issues_sorted)
 
 
-
 @app.route("/login")
 def login():
     if not github.authorized:
