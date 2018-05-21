@@ -7,7 +7,6 @@ from werkzeug.routing import BaseConverter
 
 
 class ListConverter(BaseConverter):
-
     def to_python(self, value):
         return value.split('+')
 
@@ -67,6 +66,7 @@ def strip_issue(issue):
 
 
 def repo_name_from_url(url):
+    """Returns the name of a repository, given the repository URL"""
     name = "/".join(url.split("/")[-2:])
     return name
 
