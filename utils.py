@@ -50,7 +50,8 @@ def github_search(labels, language):
             if issue not in issues:
                 issue = strip_issue(issue)
                 issue['name'] = repo_name_from_url(issue['repository_url'])
-                issue['time_alive'] = time_since(issue['created_at'])
+                issue['time_alive_readable'] = time_since_readable(issue['created_at'])
+                issue['time_alive_unreadable'] = time_since_unreadable(issue['created_at'])
                 issues.append(issue)
     return issues
 
@@ -71,7 +72,17 @@ def repo_name_from_url(url):
     return name
 
 
-def time_since(moment):
+def time_since_unreadable(moment):
+    """Returns unreadable time since a moment in the past.
+
+    Keyword arguments:
+    moment -- ISO8601 formatted time.
+    """
+    dif = datetime.utcnow() - datetime.strptime(moment, '%Y-%m-%dT%H:%M:%SZ')
+    return int(dif.total_seconds())
+
+
+def time_since_readable(moment):
     """Returns human-readable time since a moment in the past.
 
     Keyword arguments:

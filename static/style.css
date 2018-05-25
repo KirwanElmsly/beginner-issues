@@ -1,5 +1,6 @@
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #EEEEEE;
 }
 
 html {
@@ -88,7 +89,7 @@ body {
 }
 
 .results {
-
+    margin-top: 30px;
 }
 
 .issue-box {
@@ -96,10 +97,10 @@ body {
 }
 
 .issue {
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-radius: 10px;
     height: 100%;
-    padding: 0px 2px 0px 2px;
+    padding: 5px 5px 5px 5px;
 }
 
 .issue-info {
@@ -113,6 +114,7 @@ body {
 .subtitle {
     font-size: 0.7rem;
     text-align: left;
+    margin-bottom: 15px;
 }
 
 .created-at {

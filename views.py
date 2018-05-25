@@ -10,18 +10,19 @@ from app import app
 from utils import *
 
 
-@app.route("/", methods=['GET'])
-def index():
-    return render_template('index.html')
-
-
 def github_login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not github.authorized:
-            return redirect(url_for('index'))
+            return redirect(url_for("github.login"))
         return f(*args, **kwargs)
     return decorated_function
+
+
+@app.route("/", methods=['GET'])
+@github_login_required
+def index():
+    return render_template('index.html')
 
 
 @app.route("/search/<string:language>/<list:labels>", methods=['GET'])
