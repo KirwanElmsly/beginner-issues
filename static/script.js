@@ -1,5 +1,5 @@
 
-var myWorker = new Worker('/static/worker.js'); // Worker to search & return results
+var myWorker = new Worker('/static/getEndpointWorker.js'); // Worker to search & return results
 var result;
 
 var resultTemplate = '<div class="results">\
