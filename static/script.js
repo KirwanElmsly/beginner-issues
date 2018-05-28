@@ -60,7 +60,7 @@ myWorker.onmessage = function(e) {
         .insertAdjacentHTML('afterend', resultTemplate);
 
     result = JSON.parse(e.data);
-    sorted_result = sorting(result["items"], "time_alive_unreadable");
+    sorted_result = sorting(result["items"], "time_alive_seconds");
 
     //This is sooooooo messy.
     //Is there a better way to insert large amounts of HTML with variables inline?

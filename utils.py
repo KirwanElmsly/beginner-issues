@@ -51,7 +51,7 @@ def github_search(labels, language):
                 issue = strip_issue(issue)
                 issue['name'] = repo_name_from_url(issue['repository_url'])
                 issue['time_alive_readable'] = time_since_readable(issue['created_at'])
-                issue['time_alive_unreadable'] = time_since_unreadable(issue['created_at'])
+                issue['time_alive_seconds'] = time_since_unreadable(issue['created_at'])
                 issues.append(issue)
     return issues
 
