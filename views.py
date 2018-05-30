@@ -26,9 +26,15 @@ def index():
 
 
 @app.route("/search/<string:language>/<list:labels>", methods=['GET'])
-@cross_origin()
 @github_login_required
 def search(language, labels):
+    return render_template('search.html')
+
+
+@app.route("/api/search/<string:language>/<list:labels>", methods=['GET'])
+@cross_origin()
+@github_login_required
+def api_search(language, labels):
     issues = github_search(labels, language)
     results = {}
     results['items'] = issues
