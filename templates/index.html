@@ -28,6 +28,7 @@
         <div class="footer">
             by Kirwan
         </div>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        {% block results %}{% endblock %}
+        <script src="{{ url_for('static', filename='index-script.js') }}"></script>
     </body>
 </html>
