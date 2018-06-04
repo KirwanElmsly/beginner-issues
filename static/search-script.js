@@ -21,30 +21,6 @@ function sorting(js_object, key_to_sort_by) {
 };
 
 
-// Returns either a black or white text colour based on background colour
-// Takes hexadecimal colour value as input
-function ideal_text_color(hex) {
-    if (hex.indexOf('#') === 0) {
-        hex = hex.slice(1);
-    }
-    //convert 3 digit hex to 6 digit
-    if (hex.length === 3) {
-        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-    }
-
-    r = parseInt(hex.slice(0, 2), 16);
-    g = parseInt(hex.slice(2, 4), 16);
-    b = parseInt(hex.slice(4, 6), 16);
-
-    // Basic way to determine intensity of color
-    if ((r*0.299 + g*0.587 + b*0.114) > 186) {
-        return "#000000";
-    } else {
-        return "#FFFFFF";
-    }
-};
-
-
 function issue_url_to_repo_url(url) {
     var pos = url.lastIndexOf("/issues/");
     if ( pos !== -1 ) {
@@ -101,14 +77,11 @@ resultsWorker.onmessage = function(e) {
         );
 
         for (var j = 0; j < sorted_result[i]['labels'].length; j++) { //displaying list of labels
-            var label_color = "#" + sorted_result[i]["labels"][j]["color"];
             var label_name = sorted_result[i]["labels"][j]["name"];
-            var label_text_color = ideal_text_color(label_color);
 
             document.getElementById('labels-issue' + i).insertAdjacentHTML('beforeend', '\
-                <div class="label badge badge-pill badge-primary" \
-                     style="background-color:' + label_color + '; color:' + label_text_color + ';">\
-                    ' + label_name + '\
+                <div class="label badge badge-pill" >\
+                    ' + label_name.toLowerCase() + '\
                 </div>'
             );
         }
