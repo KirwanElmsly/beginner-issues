@@ -15,15 +15,6 @@ class ListConverter(BaseConverter):
                         for value in values)
 
 
-def get_items_from_txt(dir, file):
-    """Gets list of labels from a text file."""
-    path = os.path.join(dir, file)
-    reader = open(path, 'r')
-    items = [s.rstrip() for s in reader.readlines()]
-    reader.close()
-    return items
-
-
 def searches_per_minute():
     """Returns number of searches available per minute"""
     return github.get("/rate_limit").json()['resources']['search']['limit']
@@ -42,6 +33,8 @@ def github_search(labels, language):
     language -- string containing language to search
     """
     issues = []
+    labels = list(set(labels))
+    if '' in labels: labels.remove('')
     for label in labels:
         url = ("/search/issues?q=label:{}+language:{}+state:open&sort=created"
                .format(label, language))
