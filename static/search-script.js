@@ -45,6 +45,16 @@ function ideal_text_color(hex) {
 };
 
 
+function issue_url_to_repo_url(url) {
+    var pos = url.lastIndexOf("/issues/");
+    if ( pos !== -1 ) {
+        var new_url = url.substring(0,pos);
+        return new_url;
+    }
+    else { return url; }
+}
+
+
 // When search button is clicked, send endpoint location to worker (off main thread)
 window.onload = function() {
     var this_url = window.location.href
@@ -66,7 +76,7 @@ resultsWorker.onmessage = function(e) {
     for (var i = 0; i < sorted_result.length; i++) { //displaying issue box, heading & subtitle
         var issue_url = sorted_result[i]["html_url"];
         var issue_title = sorted_result[i]["title"];
-        var repo_url = sorted_result[i]["repository_url"];
+        var repo_url = issue_url_to_repo_url(sorted_result[i]["html_url"]);
         var repo_name = sorted_result[i]["name"];
         var repo_time_alive = sorted_result[i]["time_alive_readable"];
 
