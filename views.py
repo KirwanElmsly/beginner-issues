@@ -4,6 +4,7 @@ from functools import wraps
 from flask import redirect, request, render_template, url_for, jsonify
 from flask_dance.contrib.github import github
 from flask_cors import cross_origin
+
 import requests
 
 from app import app
